@@ -13,9 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(clock,SIGNAL(timeout()),
             this,SLOT(updateDate()));
     clock->start();
-    clock->stop();
-    clock->setInterval(500);
-    clock->start();
+
 
 
 }
@@ -31,6 +29,8 @@ void MainWindow::updateTime()
     time = time.currentTime();
     qDebug() << time.toString("hh:mm:ss");
 
+    timeSequence.append(time.toString("hh:mm:ss"));
+
 
 }
 
@@ -39,4 +39,20 @@ void MainWindow::updateDate()
     QDateTime date;
     date = date.currentDateTime();
     qDebug() << date.toString("yyyy-MM-dd");
+    dateSequence << date.toString("yyyy-MM-dd");
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    clock->stop();
+    for(int i=0;i<timeSequence.size();i++)
+    {
+        qDebug() << timeSequence.at(i);
+
+    }
+    for(int j=0;j<dateSequence.size();j++)
+    {
+        qDebug() << dateSequence.at(j);
+    }
+
 }

@@ -8,6 +8,8 @@
 #include <QTime>
 #include <QDateTime>
 #include <QTimer>
+#include <QVector>
+#include <QList>
 
 namespace Ui {
 class MainWindow;
@@ -24,10 +26,14 @@ public:
 private:
     Ui::MainWindow *ui;
     QTimer *clock;
+    QVector<QString> timeSequence;
+    QList<QString> dateSequence;
+
 
 private slots:
     void updateTime();
     void updateDate();
+    void on_pushButton_clicked();
 };
 
 #endif // MAINWINDOW_H
