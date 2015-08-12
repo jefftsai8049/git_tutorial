@@ -7,16 +7,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString str = "hello";
-    qDebug() << str;
-    str.prepend("haha");
-    qDebug() << str;
-    str.append("yaya");
-    qDebug() << str;
-
-    QString str2 = "momo ";
-    QString str3 = str2+str;
-    qDebug() << str3.size() << str3;
+    QString fileName;
+    QFileDialog fd;
+    fileName = fd.getOpenFileName(this,"yaya open file","","Image(*.jpg);;text(*.txt)");
 }
 
 MainWindow::~MainWindow()
