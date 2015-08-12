@@ -5,6 +5,9 @@
 #include <QDebug>
 #include <QString>
 #include <QFileDialog>
+#include <QTime>
+#include <QDateTime>
+#include <QTimer>
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +23,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QTimer *clock;
+
+private slots:
+    void updateTime();
+    void updateDate();
 };
 
 #endif // MAINWINDOW_H
